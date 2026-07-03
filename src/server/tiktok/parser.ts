@@ -10,9 +10,49 @@ export type NormalizedTikTokEvent = {
   giftId?: string;
   diamondCount?: number;
   repeatCount?: number;
-  raw: unknown;
   gifterLevel?: number;
+  isMember?: boolean;
+  raw: unknown;
 };
+
+function getAvatar(user: any, data: any) {
+  return (
+    user?.avatarUrl ||
+    user?.profilePictureUrl ||
+    user?.profile_picture_url ||
+    user?.avatarThumb?.url_list?.[0] ||
+    user?.avatarThumb?.urlList?.[0] ||
+    user?.avatarMedium?.url_list?.[0] ||
+    user?.avatarMedium?.urlList?.[0] ||
+    user?.avatarLarger?.url_list?.[0] ||
+    user?.avatarLarger?.urlList?.[0] ||
+    data?.avatarUrl ||
+    data?.avatar ||
+    data?.profilePictureUrl ||
+    data?.profile_picture_url
+  );
+}
+
+function getIsMember(user: any, data: any) {
+  const badges = Array.isArray(user?.badges) ? user.badges : [];
+
+  const hasFansBadge = badges.some((badge: any) => {
+    const url = String(badge?.url || "").toLowerCase();
+    return url.includes("fans_badge") || url.includes("fans");
+  });
+
+  return Boolean(
+    hasFansBadge ||
+      user?.isSubscriber ||
+      user?.is_subscriber ||
+      user?.isMember ||
+      user?.is_member ||
+      data?.isSubscriber ||
+      data?.is_subscriber ||
+      data?.isMember ||
+      data?.is_member
+  );
+}
 
 export function parseTikTokEvent(event: string, data: any): NormalizedTikTokEvent {
   const user = data?.user || {};
@@ -22,19 +62,9 @@ export function parseTikTokEvent(event: string, data: any): NormalizedTikTokEven
     userId: data?.user_id || data?.userId || user?.id,
     username: data?.user_unique_id || user?.uniqueId || user?.unique_id,
     nickname: user?.nickname || data?.nickname,
+    avatar: getAvatar(user, data),
     gifterLevel: Number(user?.level || data?.level || 0),
-    avatar:
-          user?.avatarThumb?.url_list?.[0] ||
-          user?.avatarThumb?.urlList?.[0] ||
-          user?.avatarMedium?.url_list?.[0] ||
-          user?.avatarMedium?.urlList?.[0] ||
-          user?.avatarLarger?.url_list?.[0] ||
-          user?.avatarLarger?.urlList?.[0] ||
-          user?.profilePictureUrl ||
-          user?.profile_picture_url ||
-          data?.avatar ||
-          data?.profilePictureUrl ||
-          data?.profile_picture_url,
+    isMember: getIsMember(user, data),
     raw: data,
   };
 
@@ -57,21 +87,10 @@ export function parseTikTokEvent(event: string, data: any): NormalizedTikTokEven
     };
   }
 
-  if (event === "like") {
-    return { ...base, type: "like" };
-  }
-
-  if (event === "follow") {
-    return { ...base, type: "follow" };
-  }
-
-  if (event === "share") {
-    return { ...base, type: "share" };
-  }
-
-  if (event === "member" || event === "join") {
-    return { ...base, type: "join" };
-  }
+  if (event === "like") return { ...base, type: "like" };
+  if (event === "follow") return { ...base, type: "follow" };
+  if (event === "share") return { ...base, type: "share" };
+  if (event === "member" || event === "join") return { ...base, type: "join" };
 
   return {
     ...base,

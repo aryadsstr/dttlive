@@ -44,37 +44,6 @@ async function createTikToolsToken(tiktokUsername: string) {
   return token;
 }
 
-// function saveDebugPayload(username: string, payload: TikTokEvent, normalized: any) {
-//   if (username !== "ardsstr") return;
-
-//   const debugDir = path.join(process.cwd(), "debug");
-//   const debugFile = path.join(
-//     debugDir,
-//     `ardsstr-chat-payload-${Date.now()}.json`
-//   );
-
-//   if (!fs.existsSync(debugDir)) {
-//     fs.mkdirSync(debugDir, { recursive: true });
-//   }
-
-//   fs.writeFileSync(
-//     debugFile,
-//     JSON.stringify(
-//       {
-//         savedAt: new Date().toISOString(),
-//         payload,
-//         normalized,
-//         raw: payload.data,
-//       },
-//       null,
-//       2
-//     ),
-//     "utf-8"
-//   );
-
-//   console.log("[DEBUG] Saved ardsstr chat payload:", debugFile);
-// }
-
 export function getTikTokConnectionStatus(userId: number) {
   const conn = connections.get(userId);
 
@@ -121,17 +90,6 @@ export async function connectTikTokLive({
 
       const data = payload.data || {};
       const normalizedEvent = parseTikTokEvent(payload.event, data);
-
-      const username =
-        normalizedEvent.username ||
-        data?.user?.uniqueId ||
-        data?.user?.unique_id ||
-        data?.user_unique_id ||
-        data?.uniqueId;
-
-      if (normalizedEvent.type === "chat") {
-        saveDebugPayload(username, payload, normalizedEvent);
-      }
 
       emitToUser(userId, "tiktok:event", normalizedEvent);
 

@@ -16,19 +16,16 @@ function parseBid(comment?: string) {
   return number * 1000;
 }
 
-function isMemberClub(raw: unknown) {
-  const data = raw as any;
+function isMemberClub(event: any) {
+  if (event.isMember) return true;
 
-  return Boolean(
-    data?.user?.isSubscriber ||
-      data?.user?.is_subscriber ||
-      data?.user?.isMember ||
-      data?.user?.is_member ||
-      data?.isSubscriber ||
-      data?.is_subscriber ||
-      data?.isMember ||
-      data?.is_member
-  );
+  const data = event.raw as any;
+  const badges = Array.isArray(data?.user?.badges) ? data.user.badges : [];
+
+  return badges.some((badge: any) => {
+    const url = String(badge?.url || "").toLowerCase();
+    return url.includes("fans_badge") || url.includes("fans");
+  });
 }
 
 export function registerAuctionService() {
@@ -50,7 +47,7 @@ export function registerAuctionService() {
 
     if (!auction) return;
 
-    const isMember = isMemberClub(event.raw);
+    const isMember = isMemberClub(event);
     const gifterLevel = Number(event.gifterLevel || 0);
 
     const hasMemberRule = auction.memberOnly;
