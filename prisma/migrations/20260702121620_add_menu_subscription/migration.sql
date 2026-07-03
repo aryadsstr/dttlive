@@ -1,5 +1,5 @@
 -- AlterTable
-ALTER TABLE `user` ADD COLUMN `planId` INTEGER NULL;
+ALTER TABLE `User` ADD COLUMN `planId` INTEGER NULL;
 
 -- CreateTable
 CREATE TABLE `Menu` (

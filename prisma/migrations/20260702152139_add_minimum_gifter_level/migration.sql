@@ -1,2 +1,2 @@
 -- AlterTable
-ALTER TABLE `auction` ADD COLUMN `minimumGifterLevel` INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE `Auction` ADD COLUMN `minimumGifterLevel` INTEGER NOT NULL DEFAULT 0;

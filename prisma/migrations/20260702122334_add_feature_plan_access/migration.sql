@@ -1,20 +1,20 @@
 /*
   Warnings:
 
-  - You are about to drop the `planmenu` table. If the table is not empty, all the data it contains will be lost.
+  - You are about to drop the `PlanMenu` table. If the table is not empty, all the data it contains will be lost.
 
 */
 -- DropForeignKey
-ALTER TABLE `planmenu` DROP FOREIGN KEY `PlanMenu_menuId_fkey`;
+ALTER TABLE `PlanMenu` DROP FOREIGN KEY `PlanMenu_menuId_fkey`;
 
 -- DropForeignKey
-ALTER TABLE `planmenu` DROP FOREIGN KEY `PlanMenu_planId_fkey`;
+ALTER TABLE `PlanMenu` DROP FOREIGN KEY `PlanMenu_planId_fkey`;
 
 -- AlterTable
-ALTER TABLE `menu` ADD COLUMN `featureId` INTEGER NULL;
+ALTER TABLE `Menu` ADD COLUMN `featureId` INTEGER NULL;
 
 -- DropTable
-DROP TABLE `planmenu`;
+DROP TABLE `PlanMenu`;
 
 -- CreateTable
 CREATE TABLE `Feature` (
