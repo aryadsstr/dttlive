@@ -1,0 +1,160 @@
+{
+  "savedAt": "2026-07-03T04:47:29.008Z",
+  "payload": {
+    "event": "chat",
+    "data": {
+      "timestamp": 1783054050199,
+      "msgId": "7658158782485367560",
+      "type": "chat",
+      "user": {
+        "id": "6888656533426193409",
+        "nickname": "ardsstr",
+        "uniqueId": "ardsstr",
+        "secUid": "MS4wLjABAAAAf_xLdrezMYqZI6V3Cufv3FA0g0kMbWHNTiTNwc_yyDM-vuolnpK4d8wtujR2TQHI",
+        "avatarUrl": "https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/805fe6ed67c77e5dffa628e94687c41e~tplv-tiktok-shrink:72:72.webp?dr=14561&refresh_token=a0d9d060&x-expires=1783224000&x-signature=Rpv%2Bx%2Frw9PtTgPQtyj%2B9rkfPtvY%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=fdd36af4&idc=my",
+        "profilePictureUrl": "https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/805fe6ed67c77e5dffa628e94687c41e~tplv-tiktok-shrink:72:72.webp?dr=14561&refresh_token=a0d9d060&x-expires=1783224000&x-signature=Rpv%2Bx%2Frw9PtTgPQtyj%2B9rkfPtvY%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=fdd36af4&idc=my",
+        "level": 19,
+        "badges": [
+          {
+            "url": "https://p16-webcast.tiktokcdn.com/webcast-va/grade_badge_icon_lite_lv15_v2.png~tplv-obj.image",
+            "name": "19",
+            "colors": {
+              "primary": "#B3477EFF"
+            }
+          },
+          {
+            "url": "https://p16-webcast.tiktokcdn.com/webcast-va/webcast-va-fans_badge_icon_lv1_v2.png~tplv-obj.image",
+            "name": "",
+            "colors": {
+              "primary": "#80FF5E3A"
+            }
+          }
+        ]
+      },
+      "comment": "udah banyak org miskin kek gitu lek",
+      "starred": {
+        "claps": 5,
+        "score": 0
+      },
+      "language": "id",
+      "messageUuid": "0f61c5b165db772388d8de680fe7bbaf",
+      "protoVersion": 3,
+      "extras": {
+        "18": "",
+        "19": {
+          "hex": "0a0e757365725f747970655f72756c6510a08d06"
+        },
+        "20": {
+          "hex": "00"
+        },
+        "24": "v1"
+      }
+    }
+  },
+  "normalized": {
+    "rawEvent": "chat",
+    "userId": "6888656533426193409",
+    "username": "ardsstr",
+    "nickname": "ardsstr",
+    "gifterLevel": 19,
+    "avatar": "https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/805fe6ed67c77e5dffa628e94687c41e~tplv-tiktok-shrink:72:72.webp?dr=14561&refresh_token=a0d9d060&x-expires=1783224000&x-signature=Rpv%2Bx%2Frw9PtTgPQtyj%2B9rkfPtvY%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=fdd36af4&idc=my",
+    "raw": {
+      "timestamp": 1783054050199,
+      "msgId": "7658158782485367560",
+      "type": "chat",
+      "user": {
+        "id": "6888656533426193409",
+        "nickname": "ardsstr",
+        "uniqueId": "ardsstr",
+        "secUid": "MS4wLjABAAAAf_xLdrezMYqZI6V3Cufv3FA0g0kMbWHNTiTNwc_yyDM-vuolnpK4d8wtujR2TQHI",
+        "avatarUrl": "https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/805fe6ed67c77e5dffa628e94687c41e~tplv-tiktok-shrink:72:72.webp?dr=14561&refresh_token=a0d9d060&x-expires=1783224000&x-signature=Rpv%2Bx%2Frw9PtTgPQtyj%2B9rkfPtvY%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=fdd36af4&idc=my",
+        "profilePictureUrl": "https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/805fe6ed67c77e5dffa628e94687c41e~tplv-tiktok-shrink:72:72.webp?dr=14561&refresh_token=a0d9d060&x-expires=1783224000&x-signature=Rpv%2Bx%2Frw9PtTgPQtyj%2B9rkfPtvY%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=fdd36af4&idc=my",
+        "level": 19,
+        "badges": [
+          {
+            "url": "https://p16-webcast.tiktokcdn.com/webcast-va/grade_badge_icon_lite_lv15_v2.png~tplv-obj.image",
+            "name": "19",
+            "colors": {
+              "primary": "#B3477EFF"
+            }
+          },
+          {
+            "url": "https://p16-webcast.tiktokcdn.com/webcast-va/webcast-va-fans_badge_icon_lv1_v2.png~tplv-obj.image",
+            "name": "",
+            "colors": {
+              "primary": "#80FF5E3A"
+            }
+          }
+        ]
+      },
+      "comment": "udah banyak org miskin kek gitu lek",
+      "starred": {
+        "claps": 5,
+        "score": 0
+      },
+      "language": "id",
+      "messageUuid": "0f61c5b165db772388d8de680fe7bbaf",
+      "protoVersion": 3,
+      "extras": {
+        "18": "",
+        "19": {
+          "hex": "0a0e757365725f747970655f72756c6510a08d06"
+        },
+        "20": {
+          "hex": "00"
+        },
+        "24": "v1"
+      }
+    },
+    "type": "chat",
+    "comment": "udah banyak org miskin kek gitu lek"
+  },
+  "raw": {
+    "timestamp": 1783054050199,
+    "msgId": "7658158782485367560",
+    "type": "chat",
+    "user": {
+      "id": "6888656533426193409",
+      "nickname": "ardsstr",
+      "uniqueId": "ardsstr",
+      "secUid": "MS4wLjABAAAAf_xLdrezMYqZI6V3Cufv3FA0g0kMbWHNTiTNwc_yyDM-vuolnpK4d8wtujR2TQHI",
+      "avatarUrl": "https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/805fe6ed67c77e5dffa628e94687c41e~tplv-tiktok-shrink:72:72.webp?dr=14561&refresh_token=a0d9d060&x-expires=1783224000&x-signature=Rpv%2Bx%2Frw9PtTgPQtyj%2B9rkfPtvY%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=fdd36af4&idc=my",
+      "profilePictureUrl": "https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/805fe6ed67c77e5dffa628e94687c41e~tplv-tiktok-shrink:72:72.webp?dr=14561&refresh_token=a0d9d060&x-expires=1783224000&x-signature=Rpv%2Bx%2Frw9PtTgPQtyj%2B9rkfPtvY%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=fdd36af4&idc=my",
+      "level": 19,
+      "badges": [
+        {
+          "url": "https://p16-webcast.tiktokcdn.com/webcast-va/grade_badge_icon_lite_lv15_v2.png~tplv-obj.image",
+          "name": "19",
+          "colors": {
+            "primary": "#B3477EFF"
+          }
+        },
+        {
+          "url": "https://p16-webcast.tiktokcdn.com/webcast-va/webcast-va-fans_badge_icon_lv1_v2.png~tplv-obj.image",
+          "name": "",
+          "colors": {
+            "primary": "#80FF5E3A"
+          }
+        }
+      ]
+    },
+    "comment": "udah banyak org miskin kek gitu lek",
+    "starred": {
+      "claps": 5,
+      "score": 0
+    },
+    "language": "id",
+    "messageUuid": "0f61c5b165db772388d8de680fe7bbaf",
+    "protoVersion": 3,
+    "extras": {
+      "18": "",
+      "19": {
+        "hex": "0a0e757365725f747970655f72756c6510a08d06"
+      },
+      "20": {
+        "hex": "00"
+      },
+      "24": "v1"
+    }
+  }
+}

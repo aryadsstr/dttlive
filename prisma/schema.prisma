@@ -1,0 +1,147 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             Int      @id @default(autoincrement())
+  username       String   @unique
+  passwordHash   String
+  tiktokUsername String?
+  overlayToken   String   @unique
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  auctions Auction[]
+  coinTransactions CoinTransaction[]
+  planId Int?
+  plan   Plan? @relation(fields: [planId], references: [id])
+}
+
+model Auction {
+  id                  Int       @id @default(autoincrement())
+  userId              Int
+  itemName            String
+  active              Boolean   @default(true)
+  highestBid          Int       @default(0)
+  highestBidder       String?
+  highestBidderAvatar String?
+  endTime             DateTime?
+
+  memberOnly Boolean @default(false)
+  openBid    Int     @default(1000)
+  bidStep    Int     @default(1000)
+  binPrice   Int?
+  minimumGifterLevel Int @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user    User     @relation(fields: [userId], references: [id])
+  bidders Bidder[]
+  winners Winner[]
+}
+
+model Bidder {
+  id        Int      @id @default(autoincrement())
+  auctionId Int
+  username  String
+  nickname  String?
+  avatar    String?
+  bid       Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  auction Auction @relation(fields: [auctionId], references: [id])
+
+  @@unique([auctionId, username])
+}
+
+model Winner {
+  id        Int      @id @default(autoincrement())
+  auctionId Int
+  userId    Int
+  winner    String
+  bid       Int
+  itemName  String
+  avatar    String?
+  createdAt DateTime @default(now())
+
+  auction Auction @relation(fields: [auctionId], references: [id])
+}
+
+model CoinTransaction {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  tiktokUserId String?
+  username     String?
+  nickname     String?
+  avatar       String?
+  eventType    String
+  giftName     String?
+  diamondCount Int      @default(0)
+  repeatCount  Int      @default(1)
+  coinAmount   Int      @default(0)
+  rawJson      Json?
+  createdAt    DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Menu {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  label     String
+  href      String
+  icon      String?
+  group     String
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  featureId Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  feature Feature? @relation(fields: [featureId], references: [id])
+}
+
+model Feature {
+  id          Int      @id @default(autoincrement())
+  key         String   @unique
+  name        String
+  description String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  menus        Menu[]
+  planFeatures PlanFeature[]
+}
+
+model Plan {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  label       String
+  description String?
+  price       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  users        User[]
+  planFeatures PlanFeature[]
+}
+
+model PlanFeature {
+  id        Int @id @default(autoincrement())
+  planId    Int
+  featureId Int
+
+  plan    Plan    @relation(fields: [planId], references: [id])
+  feature Feature @relation(fields: [featureId], references: [id])
+
+  @@unique([planId, featureId])
+}
